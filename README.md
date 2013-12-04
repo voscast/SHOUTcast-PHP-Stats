@@ -4,7 +4,7 @@ Display stats on your site, such as basic stats, web data stats, detailed listen
 
 #Requirements
 
-These scripts has been tested for PHP 5.2 or higher.
+These scripts have been targetted for PHP 5.2 or higher.
 
 cURL or `get_file_contents`
 
