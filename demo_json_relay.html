@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+	</head>
+	<body>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+		<script>
+			$(function() {
+
+				$.getJSON( "./demo_json_relay.php", function( data ) {
+
+					$('#content').append('<strong>Server Title:</strong> ' + data.SERVERTITLE + '<br>');
+					$('#content').append('<strong>Now Playing:</strong> ' + data.SONGTITLE + '<br>');
+
+					$('#content').append('<strong>Server Bitrate:</strong> ' + data.BITRATE + '<br>');
+
+					$('#content').append('<br>---<br><br>');
+
+					$.each( data.SONGHISTORY, function( index, value ) {
+
+						played_at = new Date(value.PLAYEDAT * 1000); // Convert to milliseconds
+
+						$('#content').append('Played ' + value.TITLE + ' on ' + played_at.toTimeString() + '<br>');
+					});
+				});
+
+			});
+		</script>
+
+		<code id="content"></code>
+
+		<!--
+
+		Example output from above:
+		==========================
+
+		Server Title: VosCast Demo
+		Now Playing: an idia
+		Server Bitrate: 128
+
+		---
+
+		Played an idia on 21:46:04 GMT+0000 (GMT Standard Time)
+		Played demo_orch on 21:44:56 GMT+0000 (GMT Standard Time)
+		Played country rhythm mixout version on 21:44:02 GMT+0000 (GMT Standard Time)
+		Played orchestral builder on 21:43:18 GMT+0000 (GMT Standard Time)
+		Played an idia on 21:42:20 GMT+0000 (GMT Standard Time)
+		Played country rhythm mixout version on 21:41:25 GMT+0000 (GMT Standard Time)
+		Played an idia on 21:40:27 GMT+0000 (GMT Standard Time)
+		Played demo_orch on 21:39:19 GMT+0000 (GMT Standard Time)
+		Played orchestral builder on 21:38:37 GMT+0000 (GMT Standard Time)
+		Played country rhythm mixout version on 21:37:41 GMT+0000 (GMT Standard Time)
+
+		-->
+
+		
+	</body>
+</html>
