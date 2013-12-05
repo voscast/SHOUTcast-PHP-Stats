@@ -3,7 +3,7 @@
 require_once 'vc_shoutcast.class.php';
 require_once 'vc_shoutcast_json_relay.class.php';
 
-$vc_shoutcast = new vc_shoutcast('s1.voscast.com', 7000, 'Sjjmln3OqB');
+$vc_shoutcast = new vc_shoutcast('s1.voscast.com', 7000, 'faekpassword');
 
 $vc_shoutcast_json_relay = new vc_shoutcast_json_relay($vc_shoutcast, 60);
 
